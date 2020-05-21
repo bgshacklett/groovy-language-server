@@ -1,5 +1,8 @@
 language: java
+
 addons:
-    artifacts: true
+    artifacts:
+      paths:
+        - build
 
 script: ./gradlew build
