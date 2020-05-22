@@ -1,8 +1,17 @@
 language: java
 
 addons:
-    artifacts:
-      paths:
-        - build
+  artifacts:
+    paths:
+    - build
 
-script: ./gradlew build
+script: "./gradlew build"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: VpGWxIUktsEu/9umRjslsiOfwjgG77iC8bcKSoYjUzV6A/s3BxmAtMDWSD+ee6omRJGxPmgHZY056rIdBUZhjDCLUShsuGQrBtWluXDs+SLi9wiW9LP77/UTLGZ1MJx6NDy78W7SO9R1ysjcEMNv748DEzAoBIZmQXoav+5Hrp6NUFvxKhmV0iDRPiuwNH8hi4FueQdLGUcR2otFNQkzzjlRSa4udohRy25mok/6TQyeJipi7jSZ+L9fVQhTR3DRNOGeHlaknGquoI1rvrroKwdDTjLTPqxQE2Y+UuZ3oOmcUoVHIEdtrEpgzn59+xk53O7y8CzMnbV1vlXNYtSHN1h62bsiTg0q9bt6A7wE4v/lDhXU569EfS1zWP+I8qjxHRBPBmZACzDVgSwl9WHAQR14+CkYWDDZgxqYcN8zkdFofdZHRnvpr+E1QE31yjZxEtW7H/TXd8vcAiiyhYJSzzQBRY9eWqRTdZRXzQ0c29vuLS2ijDUbb0FCyXXGjM4/b5iQN4H4PqzKzkvDfr5szy8GALd99NaSeL6TFa+xY0ZsoQ1ypA4csi3lDZ2kqVr2fCKTcdj+p1ipHODMGU6RftS2X5PKe4IsbPhyqoAqGGcDtuhVdhwG6337K8fvjRffowHUhdthjBcMkzXfMTaHqbocYG9UYKUAVa1fHUKsBQU=
+  file: build/libs/groovy-language-server-all.jar
+  skip_cleanup: 'true'
+  on:
+    tags: true
